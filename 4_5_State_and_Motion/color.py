@@ -16,6 +16,8 @@ class Color(object):
         self.r = r
         
         ## TODO: Set the other two color variables g and b
+        self.g = g
+        self.b = b
         
 
     # __repr__ is called when a color is printed using print(some_color)
@@ -28,8 +30,18 @@ class Color(object):
         ## TODO: Write a string representation for the color
         ## ex. "rgb = [self.r, self.g, self.b]"
         ## Right now this returns an empty string
-        string = ''
+        string = 'rgb = [%d, %d, %d]' % (self.r, self.g, self.b)
         
         return string
     
-    
+   # __add__ is called when a color is added by another color
+   # it returns a new color object
+    def __add__(self, other):
+        """add other color and return a new color object
+
+        :other: (Color) another color object
+        :returns: a new color object
+
+        """
+        new_color =  Color(self.r+other.r, self.g+other.g, self.b+other.b)
+        return new_color
